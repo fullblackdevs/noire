@@ -1,0 +1,30 @@
+{
+    "name": "fullstackdevs/noire",
+    "description": "Website for Black Leadership AIDS Crisis Coalition",
+    "type": "project",
+    "license": "Creative Commons",
+    "authors": [
+        {
+            "name": "Miquel Brazil",
+            "email": "miquel@brazilliance.co"
+        },
+		{
+			"name": "Shadrick Bowens",
+			"email": "shad@envydx.com"
+		}
+    ],
+    "require": {
+        "slim/slim": "^4.12",
+        "guzzlehttp/psr7": "^2.6",
+        "sentry/sentry": "^4.3",
+        "slim/php-view": "^3.2",
+        "spatie/ray": "^1.40"
+    },
+	"autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+	"minimum-stability": "stable",
+	"prefer-stable": true
+}
