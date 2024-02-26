@@ -1,0 +1,32 @@
+name: noire
+env_file:
+  - .env
+services:
+  site:
+    type: php:8.1
+    via: apache
+    ssl: true
+    webroot: web
+    composer_version: 2-latest
+    build_as_root:
+      - a2enmod headers
+    build:
+      - composer update
+  cache:
+    type: redis:6
+    persist: false
+    portforward: 56390
+proxy:
+  site:
+    - blacc.loc
+tooling:
+  php:
+    service: site
+    cmd: php
+  composer:
+    service: site
+    cmd: composer
+    description: "Run Composer commands"
+  console:
+    service: site
+    cmd: bin/console

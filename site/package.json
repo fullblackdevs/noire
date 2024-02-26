@@ -1,0 +1,19 @@
+{
+    "name": "noire",
+    "author": "fromknoware",
+    "private": true,
+    "license": "proprietary",
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.5.7",
+        "autoprefixer": "^10.4.16",
+        "cssnano": "^6.0.2",
+        "postcss": "^8.4.32",
+        "tailwindcss": "^3.4.0"
+    },
+    "dependencies": {
+        "@alpinejs/intersect": "^3.13.3",
+        "@sentry/browser": "^7.93.0",
+        "alpinejs": "^3.13.3",
+        "flowbite": "^2.2.1"
+    }
+}
