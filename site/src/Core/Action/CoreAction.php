@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Core\Action;
 
 use Cake\Chronos\ChronosDate;
@@ -14,7 +15,7 @@ use Slim\Routing\RouteContext;
 abstract class CoreAction
 {
 	protected ServerRequestInterface $request;
-    protected ResponseInterface $response;
+	protected ResponseInterface $response;
 	private PhpRenderer $renderer;
 
 	private Flash|null $_flash;
@@ -23,7 +24,7 @@ abstract class CoreAction
 
 	protected FakerGenerator $fake;
 
-	public function __invoke(ServerRequestInterface $request, ResponseInterface $response) : ResponseInterface
+	public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
 	{
 		$this->_initialize($request, $response);
 
@@ -54,24 +55,24 @@ abstract class CoreAction
 		}
 	}
 
-	protected function getRequest() : ServerRequestInterface
+	protected function getRequest(): ServerRequestInterface
 	{
 		return $this->request;
 	}
 
-	protected function getResponse() : ResponseInterface
+	protected function getResponse(): ResponseInterface
 	{
 		return $this->response;
 	}
 
-	protected function getView() : PhpRenderer
+	protected function getView(): PhpRenderer
 	{
 		if (!isset($this->renderer)) {
 			$this->renderer = new PhpRenderer(TEMPLATES);
 		}
 
 		if (empty($this->renderer->getLayout())) {
-			//$this->renderer->setLayout('layouts/page.php');
+			$this->renderer->setLayout('layouts/page.php');
 		}
 
 		$this->renderer->addAttribute('now', ChronosDate::now());
@@ -82,7 +83,7 @@ abstract class CoreAction
 		return $this->renderer;
 	}
 
-	protected function getRouter() : RouteParserInterface
+	protected function getRouter(): RouteParserInterface
 	{
 		return $this->Router;
 	}
