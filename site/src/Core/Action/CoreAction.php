@@ -72,7 +72,7 @@ abstract class CoreAction
 		}
 
 		if (empty($this->renderer->getLayout())) {
-			$this->renderer->setLayout('layouts/page.php');
+			$this->renderer->setLayout('Layouts/page.php');
 		}
 
 		$this->renderer->addAttribute('now', ChronosDate::now());
