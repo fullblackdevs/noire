@@ -1,9 +1,8 @@
-<h1 class="text-2xl">BLACC Media Manager</h1>
-
-<form action="/upload" method="POST" enctype="multipart/form-data">
-	<section>
+<form action="/upload" method="POST" enctype="multipart/form-data" class="flex flex-col p-8 bg-white rounded-lg gap-4">
+	<h1 class="text-2xl font-bold">BLACC Media Manager</h1>
+	<div class="flex flex-col gap-4">
 		<div>
-			<label for="title">User</label>
+			<label for="user" class="sr-only">User</label>
 			<select name="user" id="user" class="max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full text-sm border-gray-300 rounded-md">
 				<option value="miquel@brazilliance.co">Miquel Brazil</option>
 				<option value="imara.canady@ahf.org">Imara Canady</option>
@@ -11,7 +10,7 @@
 			</select>
 		</div>
 		<div>
-			<label for="chapter">Chapter</label>
+			<label for="chapter" class="sr-only">Chapter</label>
 			<select name="chapter" id="chapter" class="max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full text-sm border-gray-300 rounded-md">
 				<option value="CLE">Cleveland, OH</option>
 				<option value="CHI">Chicago, IL</option>
@@ -20,7 +19,7 @@
 			</select>
 		</div>
 		<div>
-			<label for="chapter">Event Date</label>
+			<label for="chapter" class="sr-only">Event Date</label>
 			<div class="relative max-w-sm">
 				<div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
 					<svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -31,7 +30,7 @@
 			</div>
 
 		</div>
-	</section>
+</div>
 
 	<section>
 		<div class="flex items-center justify-center w-full">

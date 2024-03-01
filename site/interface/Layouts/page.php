@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full lg:bg-gray-900">
 
 <head>
 	<meta charset="utf-8">
@@ -22,8 +22,8 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
-<body class="antialiased lg:flex lg:flex-col lg:justify-stretch font-body lg:min-h-lvh">
-	<div class="mx-auto">
+<body class="antialiased lg:flex lg:flex-col lg:justify-stretch font-body h-lvh">
+	<div class="flex flex-col lg:min-h-full justify-center mx-auto tracking-tighter min-w-full lg:min-w-96">
 		<?= $content ?>
 	</div>
 </body>
