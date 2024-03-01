@@ -5,9 +5,9 @@
 		<div>
 			<label for="title">User</label>
 			<select name="user" id="user" class="max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full text-sm border-gray-300 rounded-md">
-				<option value="1">User 1</option>
-				<option value="2">User 2</option>
-				<option value="3">User 3</option>
+				<option value="miquel@brazilliance.co">Miquel Brazil</option>
+				<option value="imara.canady@ahf.org">Imara Canady</option>
+				<option value="william.porch@ahf.org">William Porch</option>
 			</select>
 		</div>
 		<div>
@@ -16,6 +16,7 @@
 				<option value="CLE">Cleveland, OH</option>
 				<option value="CHI">Chicago, IL</option>
 				<option value="ATL">Atlanta, GA</option>
+				<option value="FLL">Fort Lauderdale, FL</option>
 			</select>
 		</div>
 		<div>
