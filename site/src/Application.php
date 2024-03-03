@@ -2,6 +2,7 @@
 namespace App;
 
 use App\Core\AbstractApplication;
+use App\Core\Middleware\RoutesLoaderMiddleware;
 use App\Middleware\SessionMiddleware;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\JsonConfig;
@@ -19,6 +20,7 @@ class Application extends AbstractApplication
 	{
 		$this->initialize();
 
+		$app = $this->registerMiddleware($app);
 		$app = $this->registerRoutes($app);
 		//$app->add(SessionMiddleware::class);
 		$this->app = $app;
@@ -33,7 +35,7 @@ class Application extends AbstractApplication
 	public static function startup() : SlimApp
 	{
 		$app = SlimAppFactory::create();  // create a Slim App instance using the Factory
-
+		ray($app);
 		return (new Application($app))->getApp();
 	}
 
@@ -73,4 +75,11 @@ class Application extends AbstractApplication
 			exit($e->getMessage() . "\n");
 		}
 	}
+
+	private function registerMiddleware(SlimApp $app): SlimApp
+    {
+        $app->add(RoutesLoaderMiddleware::class);
+
+        return $app;
+    }
 }

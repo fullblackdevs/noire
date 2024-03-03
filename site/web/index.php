@@ -4,4 +4,5 @@ require_once dirname(__DIR__) . '/config/paths.php';
 
 use App\Application;
 
-$app = (Application::startup())->run();
+$app = Application::startup();
+$app = $app->run();
