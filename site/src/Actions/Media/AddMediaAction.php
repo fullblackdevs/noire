@@ -11,6 +11,9 @@ class AddMediaAction extends CoreAction
 	{
 		$Users = new UsersRepository();
 
+		// add a error to the Errors stack if no Users are found or add support
+		// to upload media anonymously
+
 		return $this->getView()->render($this->getResponse(), 'Components/Media/Form/AddMediaForm.php', [
 			'users' => $Users->getUsersList(),
 		]);

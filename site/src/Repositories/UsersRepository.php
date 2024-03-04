@@ -2,6 +2,8 @@
 namespace App\Repositories;
 
 use App\Core\Repository\CoreRepository;
+use League\Flysystem\FilesystemException;
+use League\Flysystem\UnableToReadFile;
 
 class UsersRepository extends CoreRepository
 {
@@ -11,12 +13,20 @@ class UsersRepository extends CoreRepository
 	{
 		parent::__construct();
 
-		$this->Users = json_decode($this->fs->read('users.json'), true);
+		$users = json_encode([]);
+
+		try {
+			$users = $this->fs->read('users.json');
+		} catch (FilesystemException | UnableToReadFile $exception) {
+			// handle the error
+		}
+
+		$this->Users = json_decode($users, true);
 	}
 
 	public function getUsers(): array
 	{
-		return $this->Users['*'];
+		return isset($this->Users['*']) ? $this->Users['*'] : [];
 	}
 
 	public function getUsersList(): array
