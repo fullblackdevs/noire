@@ -1,12 +1,9 @@
 <?php
-
-use App\Action\Trailer\ViewTrailerAction;
-use App\Action\Media\UploadMediaAction;
+use App\Actions\Content\ViewMainContentAction;
 use Slim\App;
 
 return function (App $app) {
-	$app->get('[/]', ViewTrailerAction::class);
-	$app->post('/upload', UploadMediaAction::class);
+	$app->get('[/]', ViewMainContentAction::class);
 
 	return $app;
 };

@@ -9,14 +9,37 @@
 	<title>BLACC Media Manager</title>
 
 	<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js" defer></script>
-	<script src="//unpkg.com/alpinejs" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" defer></script>
 
-	<script defer>
-		document.addEventListener('DOMContentLoaded', function() {
-			console.log('DOMContentLoaded');
-		});
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+
+	<script>
+		document.addEventListener('alpine:init', () => {
+			Alpine.data('dropzone', () => ({
+				init() {
+					console.log('Dropzone initialized')
+				}
+			}));
+
+			Alpine.data('datepicker', () => ({
+				Calendar: null,
+				init() {
+					import('https://cdn.jsdelivr.net/npm/flowbite-datepicker@1.2.6/+esm').then((module) => {
+						Flowbite.Plugins = module;
+						this.Calendar = new window.Flowbite.Plugins.Datepicker(this.$el, {
+							format: 'mm-dd-yyyy',
+							autohide: true,
+							maxDate: new Date(),
+						})
+						// add support to change UI for disabled dates
+						// add support to ensure picker UI matches text field
+						console.log(this.Calendar)
+						console.log('Datepicker initialized')
+					})
+				}
+			}));
+		})
 	</script>
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />

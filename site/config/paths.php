@@ -28,6 +28,11 @@ define('APP', ROOT . DS . APP_DIR . DS);
 define('CONFIG', ROOT . DS . 'config' . DS);
 
 /*
+ * Path to the routes directory.
+ */
+define('ROUTES', CONFIG . DS . 'routes' . DS);
+
+/*
  * Path to the App Data directory
  */
 define('DATA', ROOT . DS . 'data' . DS);
@@ -63,6 +68,7 @@ define('TEMPLATES', ROOT . DS . 'interface');
 define('WEB_ROOT', ROOT . DS . 'web' . DS);
 define('WEB_ROOT_ASSETS', ROOT . DS . 'web' . DS . 'assets' . DS);
 define('WEB_ROOT_DATA', ROOT . DS . 'web' . DS . 'data' . DS);
+define('REGISTRY', WEB_ROOT_DATA . 'registry' . DS);
 
 /*
  * The absolute path to the "cake" directory, WITHOUT a trailing DS.

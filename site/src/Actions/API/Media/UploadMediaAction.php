@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Action\Media;
+namespace App\Actions\API\Media;
 
 use App\Core\Action\CoreAction;
 use Psr\Http\Message\ResponseInterface;
