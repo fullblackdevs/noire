@@ -2,7 +2,6 @@
 /vars/*
 
 // DATA
-/data
 /web/data/*
 
 !**/.gitkeep
