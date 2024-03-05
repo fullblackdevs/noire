@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full lg:bg-gray-900">
+<html class="h-full md:bg-gray-900">
 
 <head>
 	<meta charset="utf-8">
@@ -18,6 +18,12 @@
 		document.addEventListener('alpine:init', () => {
 			Alpine.data('dropzone', () => ({
 				Media: [],
+				User: null,
+				Chapter: null,
+				Event: {
+					date: null,
+					title: null
+				},
 				init() {
 					console.log('Dropzone initialized')
 				},
@@ -25,6 +31,9 @@
 					const items = [...e.target.files]
 					this.Media.push(...items)
 				},
+				uploadMedia() {
+					console.log('Uploading media...')
+				}
 			}));
 
 			Alpine.data('datepicker', () => ({
@@ -50,8 +59,8 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
-<body class="antialiased lg:flex lg:flex-col lg:justify-stretch font-body h-lvh">
-	<div class="flex flex-col lg:min-h-full justify-center mx-auto tracking-tighter min-w-full lg:min-w-96">
+<body class="antialiased flex flex-col lg:justify-stretch font-body h-lvh">
+	<div class="flex flex-col h-full justify-start md:justify-center items-center md:mx-auto tracking-tighter w-screen md:w-96 grow">
 		<?= $content ?>
 	</div>
 </body>
