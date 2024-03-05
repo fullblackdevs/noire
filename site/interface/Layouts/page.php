@@ -59,7 +59,7 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
-<body class="antialiased flex flex-col lg:justify-stretch font-body h-lvh">
+<body class="antialiased flex flex-col lg:justify-stretch font-body h-dvh">
 	<div class="flex flex-col h-full justify-start md:justify-center items-center md:mx-auto tracking-tighter w-screen md:w-96 grow">
 		<?= $content ?>
 	</div>
