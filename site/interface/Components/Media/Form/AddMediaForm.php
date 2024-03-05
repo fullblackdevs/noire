@@ -1,4 +1,4 @@
-<form x-data="dropzone" action="/api/v0/media/upload" method="POST" enctype="multipart/form-data" class="flex flex-col p-8 bg-white rounded-lg gap-4 w-11/12 md:w-96 h-dvh md:h-auto" @submit.prevent="uploadMedia">
+<form x-data="dropzone" action="/api/v0/media/upload" method="POST" enctype="multipart/form-data" class="flex flex-col p-8 bg-white rounded-lg gap-4 w-full md:w-96 h-dvh md:h-auto" @submit.prevent="uploadMedia">
 	<h1 class="text-2xl font-bold">BLACC Media Uploader</h1>
 	<div class="flex flex-col gap-4">
 		<div>
