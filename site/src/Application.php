@@ -74,7 +74,6 @@ class Application extends AbstractApplication
 				$app = $routes($app);
 			}
 		} else {
-			ray('Using Web Routes');
 			if (!file_exists(CONFIG . 'routes.php')) {
 				throw new Exception('Routes not found.');
 			}
