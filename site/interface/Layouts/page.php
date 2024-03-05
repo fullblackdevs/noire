@@ -17,9 +17,14 @@
 	<script>
 		document.addEventListener('alpine:init', () => {
 			Alpine.data('dropzone', () => ({
+				Media: [],
 				init() {
 					console.log('Dropzone initialized')
-				}
+				},
+				attachMedia(e, options) {
+					const items = [...e.target.files]
+					this.Media.push(...items)
+				},
 			}));
 
 			Alpine.data('datepicker', () => ({

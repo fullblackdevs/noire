@@ -16,7 +16,6 @@ abstract class CoreRepository
 		if (Configure::read('Registry.default.connection') === 'local') {
 			$this->fs = new Filesystem(new LocalFilesystemAdapter(REGISTRY));
 		} else {
-			ray('Using Spaces');
 			$this->fs = new Filesystem(new AwsS3V3Adapter(
 				new S3Client([
 					'version' => $_ENV['DIGITALOCEAN_SPACES_VERSION'],
