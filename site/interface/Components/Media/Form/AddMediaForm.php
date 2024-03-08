@@ -36,7 +36,7 @@
 			</g>
 		</g>
 	</svg>
-	<h1 class="text-2xl font-bold text-center">Event Media Uploader</h1>
+	<h1 class="text-3xl font-bold text-center">Event Media Uploader</h1>
 	<form action="/api/v0/media/upload" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4 transition duration-300" @change="updateActions" @submit.prevent="uploadMedia">
 		<div class="flex flex-col gap-4">
 			<div>
