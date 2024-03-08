@@ -35,11 +35,38 @@
 						label: 'Submit Media'
 					},
 					uploadStart: true,
-					uploadSuccess: null
+					uploadSuccess: null,
+					formTransitions: {
+						started: [],
+						ended: []
+					}
 				},
 				init() {
 					console.log('Dropzone initialized')
-					console.log(this.Currently)
+					console.log(document.getElementsByTagName('form')[0])
+
+					form = document.getElementsByTagName('form')[0]
+
+					/* each time a new transition is detectd on the Form add it to an array */
+					form.addEventListener('transitionstart', (e) => {
+						this.State.formTransitions.started.push(e)
+					})
+
+					/* each time a transition ends add it to the ended transitions array
+					 * then check if the Form has ended all transitions
+					 */
+
+					form.addEventListener('transitionend', (e) => {
+						this.State.formTransitions.ended.push(e)
+						console.log(this.State.formTransitions)
+
+						if (this.State.formTransitions.started.length === this.State.formTransitions.ended.length) {
+							console.log('All transitions have ended')
+							// we can start our entrance transitions of the confirmation message
+							form.classList.add('hidden')
+							this.State.uploadSuccess = true
+						}
+					})
 				},
 				attachMedia(e, options) {
 					const items = [...e.target.files]
@@ -95,10 +122,7 @@
 							this.State.uploading.label = "Media Uploaded"
 							this.State.uploading.status = false
 
-							this.State.uploadStart = false
-							//this.State.uploadSuccess = true
-
-							this.Actions.available.upload = false
+							this.finishUpload()
 						}
 
 						return
@@ -137,6 +161,18 @@
 					) {
 						this.Actions.available.upload = true
 					}
+				},
+				finishUpload() {
+					// Start triggering transitions
+					console.log('Media upload complete')
+					this.State.uploadStart = false
+
+					this.Actions.available.upload = false
+					this.State.uploading.label = "Media Uploaded"
+
+					form = document.getElementsByTagName('form')[0]
+					form.classList.add('opacity-0')
+					form.classList.add('scale-0')
 				}
 			}));
 
