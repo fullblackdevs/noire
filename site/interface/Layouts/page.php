@@ -274,8 +274,8 @@
 	</style>
 </head>
 
-<body class="antialiased flex flex-col justify-start md:justify-center items-center font-body h-dvh">
-	<div class="md:mx-auto tracking-tighter w-screen md:w-96">
+<body class="antialiased flex flex-col justify-start md:justify-center items-center font-body min-h-dvh overflow-y-scroll">
+	<div class="md:mx-auto tracking-tighter w-screen md:w-96 overflow-y-visible md:py-10">
 		<?= $content ?>
 	</div>
 </body>
