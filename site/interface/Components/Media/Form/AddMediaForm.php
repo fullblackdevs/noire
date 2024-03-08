@@ -1,5 +1,5 @@
 <div x-data="dropzone" class="w-full md:w-96">
-	<form x-show="State.uploadStart" action="/api/v0/media/upload" method="POST" enctype="multipart/form-data" class="flex flex-col p-8 bg-white rounded-lg gap-4 h-dvh md:h-auto" @change="updateActions" @submit.prevent="uploadMedia"
+	<form x-show="State.uploadStart" action="/api/v0/media/upload" method="POST" enctype="multipart/form-data" class="flex flex-col p-8 bg-white rounded-lg gap-4" @change="updateActions" @submit.prevent="uploadMedia"
 		x-transition:leave="transition ease-in duration-300"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-90"
@@ -71,11 +71,11 @@
 			<span x-text="State.uploading.label"></span>
 		</button>
 	</form>
-	<div x-show="State.uploadSuccess" class="flex flex-col p-8 bg-white rounded-lg gap-4 justify-center items-center"
+	<div x-show="State.uploadSuccess" class="flex flex-col p-8 bg-white rounded-lg gap-4 justify-center items-center md:h-auto"
 		x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="opacity-0 scale-90"
         x-transition:enter-end="opacity-100 scale-100"
 	>
-		<p class="font-medium">Your Media has been successfully uploaded.</p>
+		<p class="h-auto font-medium">Your Media has been successfully uploaded.</p>
 	</div>
 </div>
