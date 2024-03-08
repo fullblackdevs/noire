@@ -1,6 +1,5 @@
 <div x-data="dropzone" class="w-full md:w-96">
-	<form action="/api/v0/media/upload" method="POST" enctype="multipart/form-data" class="flex flex-col p-8 bg-white rounded-lg gap-4 h-dvh md:h-auto transition duration-300" @change="updateActions" @submit.prevent="uploadMedia"
-	>
+	<form action="/api/v0/media/upload" method="POST" enctype="multipart/form-data" class="flex flex-col p-8 bg-white rounded-lg gap-4 min-h-dvh md:min-h-fit transition duration-300" @change="updateActions" @submit.prevent="uploadMedia">
 		<h1 class="text-2xl font-bold">BLACC Media Uploader</h1>
 		<div class="flex flex-col gap-4">
 			<div>
@@ -34,29 +33,27 @@
 			</div>
 		</div>
 
-		<section>
-			<div class="flex items-center justify-center w-full">
-				<label for="dropzone" class="flex flex-col items-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50" :class="Media.length === 0 ? 'justify-center' : 'justify-start overflow-y-scroll'">
-					<div x-show="Media.length === 0" class="flex flex-col items-center justify-center pt-5 pb-6">
-						<svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-						</svg>
-						<p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-						<p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF</p>
-					</div>
-					<input id="dropzone" name="media[]" type="file" multiple class="hidden" @change="attachMedia($event, {source: 'dialog'})" />
-					<ul x-show="Media.length > 0" class="flex flex-col items-center justify-between w-full mt-5 px-4 text-sm gap-2">
-						<template x-for="(media, index) in Media" :key="index">
-							<li :id="'media-' + (Number(index) + Number(1)).toString()" class="py-3 px-2 flex items-center justify-between w-full border border-dashed rounded-md border-gray-600 relative overflow-hidden">
-								<p x-text="media.asset.name" class="w-[75%] text-gray-500 truncate z-10" :class="{ 'text-white' : media.upload.percent > 0 }"></p>
-								<button type="button" x-show="media.upload.percent===0" @click="Media.splice(index, 1)" class="w-[20%] text-red-500 z-10 text-right">Remove</button>
-								<p x-show="media.upload.percent>0" x-text="Media[index].upload.percent + '%'" class="w-[20%] text-white z-10 text-right">0%</p>
-								<progress x-show="media.upload.percent>0" :value="media.upload.percent" max="100" class="absolute size-full inset-0 transition-all ease-linear"></progress>
-							</li>
-						</template>
-					</ul>
-				</label>
-			</div>
+		<section class="flex items-center justify-center">
+			<label for="dropzone" class="relative flex flex-col items-center w-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50" :class="Media.length === 0 ? 'justify-center' : 'justify-start md:overflow-y-scroll'" style="aspect-ratio: 1/1">
+				<div x-show="Media.length === 0" class="flex flex-col items-center justify-center pt-5 pb-6">
+					<svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+					</svg>
+					<p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+					<p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF</p>
+				</div>
+				<input id="dropzone" name="media[]" type="file" multiple class="hidden" @change="attachMedia($event, {source: 'dialog'})" />
+				<ul x-show="Media.length > 0" class="flex flex-col items-center justify-between w-full my-5 px-4 text-sm gap-2">
+					<template x-for="(media, index) in Media" :key="index">
+						<li :id="'media-' + (Number(index) + Number(1)).toString()" class="py-3 px-2 flex items-center justify-between w-full border border-dashed rounded-md border-gray-600 relative overflow-hidden">
+							<p x-text="media.asset.name" class="w-[75%] text-gray-500 truncate z-10" :class="{ 'text-white' : media.upload.percent > 0 }"></p>
+							<button type="button" x-show="media.upload.percent===0" @click="Media.splice(index, 1)" class="w-[20%] text-red-500 z-10 text-right">Remove</button>
+							<p x-show="media.upload.percent>0" x-text="Media[index].upload.percent + '%'" class="w-[20%] text-white z-10 text-right">0%</p>
+							<progress x-show="media.upload.percent>0" :value="media.upload.percent" max="100" class="absolute size-full inset-0 transition-all ease-linear"></progress>
+						</li>
+					</template>
+				</ul>
+			</label>
 		</section>
 
 		<button type="submit" class="mt-auto inline-flex justify-center rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" value="upload" @click.prevent="uploadMedia" :class="{ 'pointer-events-none' : !Actions.available.upload, 'opacity-50' : !Actions.available.upload }" :disabled="!Actions.available.upload">
@@ -67,11 +64,7 @@
 			<span x-text="State.uploading.label"></span>
 		</button>
 	</form>
-	<div x-show="State.uploadSuccess" class="flex flex-col p-8 bg-white rounded-lg gap-4 justify-center items-center h-dvh md:h-auto"
-		x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 scale-90"
-        x-transition:enter-end="opacity-100 scale-100"
-	>
+	<div x-show="State.uploadSuccess" class="flex flex-col p-8 bg-white rounded-lg gap-4 justify-center items-center h-dvh md:h-auto" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
 		<p class="h-auto font-medium">Your Media has been successfully uploaded.</p>
 	</div>
 </div>

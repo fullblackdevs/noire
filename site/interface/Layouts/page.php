@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full md:bg-gray-900">
+<html class="h-dvh md:bg-gray-900">
 
 <head>
 	<meta charset="utf-8">
@@ -187,12 +187,59 @@
 							maxDate: new Date(),
 						})
 
-						this.Calendar.pickerElement.addEventListener('click', function($input, e) {
+						const DatePicker = this.Calendar.pickerElement
+
+						DatePicker.addEventListener('click', function($input, e) {
 							if (typeof e.target.dataset.date !== 'undefined') {
-								let dateChangeEvent = new Event('dateChange');
+								let dateChangeEvent = new Event('dateChange')
 								$input.dispatchEvent(dateChangeEvent);
 							}
-						}.bind(this.Calendar, this.Calendar.inputField));
+						}.bind(this.Calendar, this.Calendar.inputField))
+
+						//DatePicker.classList.add('w-full', 'flex', 'justify-stretch', 'content-stretch')
+						DatePicker.querySelector('.datepicker-picker').classList.add('w-full')
+						DatePicker.querySelector('.days').classList.add('w-full');
+						DatePicker.querySelectorAll('.datepicker-view, .datepicker-grid').forEach((el) => {
+							el.className = el.className.replace('w-64', 'w-[280px]')
+						});
+
+						DatePicker.addEventListener('click', function(e) {
+							console.log(e);
+							console.log(this.picker);
+							if (this.picker.active) {
+								this.picker.main.querySelectorAll('.datepicker-view, .datepicker-grid').forEach((el) => {
+									el.classList.remove('w-64');
+								})
+							}
+
+							const disabledDates = DatePicker.querySelectorAll('.datepicker-cell.disabled')
+							console.log(disabledDates)
+							disabledDates.forEach((date) => {
+								date.addEventListener('click', function(e) {
+									e.preventDefault()
+									e.stopPropagation()
+								})
+
+								date.className = date.className.replace(/\b(dark:)\S+\s\b/g, '')
+								date.className = date.className.replace(/\b(hover:)\S+\s\b/g, '')
+								date.className = date.className.replace(/\b(text-gray-)\d+\s\b/g, '')
+								date.classList.add('text-gray-300')
+							})
+						}.bind(this.Calendar));
+
+						const disabledDates = DatePicker.querySelectorAll('.datepicker-cell.disabled')
+						console.log(disabledDates)
+						disabledDates.forEach((date) => {
+							date.addEventListener('click', function(e) {
+								e.preventDefault()
+								e.stopPropagation()
+							})
+
+							date.className = date.className.replace(/\b(dark:)\S+\s\b/g, '')
+							date.className = date.className.replace(/\b(hover:)\S+\s\b/g, '')
+							date.className = date.className.replace(/\b(text-gray-)\d+\s\b/g, '')
+							date.classList.add('text-gray-300')
+						})
 
 						this.Calendar.inputField.addEventListener('dateChange', function(e) {
 							console.log('the date has changed')
@@ -227,8 +274,8 @@
 	</style>
 </head>
 
-<body class="antialiased flex flex-col lg:justify-stretch font-body h-dvh">
-	<div class="flex flex-col h-full justify-start md:justify-center items-center md:mx-auto tracking-tighter w-screen md:w-96 grow">
+<body class="antialiased flex flex-col justify-start md:justify-center items-center font-body h-dvh">
+	<div class="md:mx-auto tracking-tighter w-screen md:w-96">
 		<?= $content ?>
 	</div>
 </body>
