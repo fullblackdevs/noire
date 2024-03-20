@@ -122,7 +122,9 @@
 							this.State.uploading.label = "Media Uploaded"
 							this.State.uploading.status = false
 
-							this.finishUpload()
+							setTimeout(() => {
+								this.finishUpload()
+							}, 600);
 						}
 
 						return
