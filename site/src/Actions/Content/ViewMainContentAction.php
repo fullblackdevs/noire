@@ -8,6 +8,7 @@ class ViewMainContentAction extends CoreAction
 {
 	public function invoke(): ResponseInterface
 	{
+		$this->getView()->setLayout('Layouts/site.php');
 		return $this->getView()->render($this->getResponse(), 'Components/Content/Page/MainPage.php', []);
 	}
 }
