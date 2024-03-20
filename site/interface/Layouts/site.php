@@ -295,7 +295,7 @@ $bg = $backgrounds[$bgID];
 		</aside>
 		<?= $content ?>
 		<footer class="flex border-t border-gray-300 text-xs px-10 py-8 mt-auto justify-between items-center">
-			<p>POWERED BY THE AIDS HEALTHCARE FOUNDATION. <br />© 2024 AIDS HEALTHCARE FOUNDATION IS A NONPROFIT, TAX-EXEMPT 501(C)(3) ORGANIZATION</p>
+			<p class="w-4/5 md:w-full">POWERED BY THE AIDS HEALTHCARE FOUNDATION. <br />© 2024 AIDS HEALTHCARE FOUNDATION IS A NONPROFIT, TAX-EXEMPT 501(C)(3) ORGANIZATION</p>
 			<a href="https://aidshealth.org"><img src="https://blacc-dev.nyc3.digitaloceanspaces.com/media/images/logo/AHF-noname.png" alt="AIDS Healthcare Foundation" class="h-10 w-auto" /></a>
 		</footer>
 	</div>

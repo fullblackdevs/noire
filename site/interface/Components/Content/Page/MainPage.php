@@ -40,7 +40,7 @@
 	</header>
 
 	<section class="flex flex-col gap-y-4 mt-8">
-		<h1 class="text-3xl font-bold tracking-tighter">Welcome to the New BLACC</h1>
+		<h1 class="text-2xl md:text-3xl font-bold tracking-tighter">Welcome to the New BLACC</h1>
 
 		<p>The Black Leadership AIDS Crisis Coalition (BLACC) is an affinity group of AIDS Healthcare Foundation. The group was developed to create a coalition of Black-American cultural influencers and health advocates, that through the use of innovative, culturally relevant messaging and initiatives, are revolutionizing outreach to the Black American community and elevating the education and awareness of sexual health and wellness and bringing greater awareness to the social justice issues disproportionately impacting the health and wellness of Black Americans.</p>
 
@@ -50,9 +50,9 @@
 	</section>
 
 	<section class="mt-8">
-		<h2 class="text-3xl font-bold border-b pb-2 mb-4">BLACC Focus Areas</h2>
+		<h2 class="text-2xl md:text-3xl font-bold border-b pb-2 mb-4">BLACC Focus Areas</h2>
 		<p>To accomplish it's mission, BLACC Chapters and Members focus our outreach efforts through the following areas:</p>
-		<ul class="grid grid-cols-3 justify-stretch items-stretch gap-4 mt-4">
+		<ul class="grid grid-cols-2 md:grid-cols-3 justify-stretch items-stretch gap-4 mt-4">
 			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Political & Civic Advocacy</li>
 			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Faith & Spirituality</li>
 			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Black LGBTQIA</li>
@@ -63,23 +63,23 @@
 	</section>
 
 	<section class="mt-10">
-		<h2 class="text-3xl font-bold border-b pb-2 mb-4">BLACC Chapters</h2>
+		<h2 class="text-2xl md:text-3xl font-bold border-b pb-2 mb-4">BLACC Chapters</h2>
 		<p>To ensure that BLACC is making a powerful impact in the community in regards to shifting the trajectory of the epidemic in the Black American community, BLACC has established local chapters in the following communities:</p>
-		<ul class="grid grid-cols-4 justify-stretch items-stretch gap-4 mt-4">
-			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Atlanta, GA</li>
-			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Cleveland, OH</li>
-			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Columbus, OH</li>
-			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Los Angeles, CA</li>
-			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Houston, TX</li>
-			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Dallas, TX</li>
-			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Ft. Lauderdale, FL</li>
-			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Miami, FL</li>
+		<ul class="grid grid-col-1 md:grid-cols-4 justify-stretch items-stretch gap-4 mt-4">
+			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-16 md:h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Atlanta, GA</li>
+			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-16 md:h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Cleveland, OH</li>
+			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-16 md:h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Columbus, OH</li>
+			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-16 md:h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Los Angeles, CA</li>
+			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-16 md:h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Houston, TX</li>
+			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-16 md:h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Dallas, TX</li>
+			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-16 md:h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Ft. Lauderdale, FL</li>
+			<li class="flex justify-center items-center border border-gray-200 rounded-md text-center h-16 md:h-24 aspect-square hover:bg-gray-100 p-2 font-medium">Miami, FL</li>
 		</ul>
 	</section>
 
 	<section class="mt-8">
-		<h2 class="text-3xl font-bold border-b pb-2 mb-4">BLACC Leadership</h2>
-		<ul role="list" class="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none md:grid-cols-2">
+		<h2 class="text-2xl md:text-3xl font-bold border-b pb-2 mb-4">BLACC Leadership</h2>
+		<ul role="list" class="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 lg:mx-0 lg:max-w-none md:grid-cols-2">
 			<li>
 				<img class="aspect-[3/2] w-full rounded-md object-cover" src="https://blacc-dev.nyc3.digitaloceanspaces.com/media/images/profile/IMG_1534.jpeg" alt="">
 				<div class="flex justify-between mt-2">
